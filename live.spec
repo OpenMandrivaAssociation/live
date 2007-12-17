@@ -12,7 +12,6 @@ Patch1: live-pic.patch
 License: LGPL
 Group: System/Libraries
 URL: http://www.live555.com/liveMedia/
-BuildRoot: %{_tmppath}/%{name}-buildroot
 
 %description
 This code forms a set of C++ libraries for multimedia streaming, using
