@@ -1,14 +1,14 @@
 %define name live
-%define version 2008.05.12
+%define version 2008.06.26
 
 Summary: LIVE555 Streaming Media Library
 Name: %{name}
 Version: %{version}
-Release: %mkrel 2
+Release: %mkrel 1
 Source0: http://live555.com/liveMedia/public/%{name}.%version.tar.gz
 Patch0: live.2007.01.09-optflags.patch
 Patch1: live-pic.patch
-License: LGPL
+License: LGPLv2+
 Group: System/Libraries
 URL: http://www.live555.com/liveMedia/
 BuildRoot: %{_tmppath}/%{name}-buildroot
