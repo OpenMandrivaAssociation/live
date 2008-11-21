@@ -53,7 +53,7 @@ for dir in BasicUsageEnvironment groupsock liveMedia UsageEnvironment; do
   cp -r $dir/*.a $dir/include %buildroot%_libdir/%name/$dir
 done
 mkdir -p %buildroot%_bindir
-for testprog in `find testProgs -type f -perm 755`; do
+for testprog in `find testProgs mediaServer -type f -perm 755`; do
   install $testprog %buildroot%_bindir
 done
 
