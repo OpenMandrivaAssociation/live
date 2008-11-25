@@ -63,7 +63,14 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %doc COPYING README
-%_bindir/*
+%_bindir/MPEG2TransportStreamIndexer
+%_bindir/live555MediaServer
+%_bindir/openRTSP
+%_bindir/playSIP
+%_bindir/sapWatch
+%_bindir/test*
+%_bindir/vobStreamer
+
 
 %files devel
 %defattr(-,root,root)
