@@ -1,5 +1,5 @@
 %define name live
-%define version 2008.11.13
+%define version 2009.01.26
 
 Summary: LIVE555 Streaming Media Library
 Name: %{name}
@@ -8,6 +8,7 @@ Release: %mkrel 1
 Source0: http://live555.com/liveMedia/public/%{name}.%version.tar.gz
 Patch0: live.2007.01.09-optflags.patch
 Patch1: live-pic.patch
+Patch2: live-format-strings.patch
 License: LGPLv2+
 Group: System/Libraries
 URL: http://www.live555.com/liveMedia/
@@ -39,6 +40,7 @@ This package contains all needed files to build programs based on LIVE555.
 %setup -q -n %name
 %patch0 -p1 -b .optflags
 %patch1 -p1 -b .pic
+%patch2 -p1
 rm -f testProgs/qtParse
 
 %build
