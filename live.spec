@@ -4,7 +4,7 @@
 Summary: LIVE555 Streaming Media Library
 Name: %{name}
 Version: %{version}
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: http://live555.com/liveMedia/public/%{name}.%version.tar.gz
 Patch0: live.2007.01.09-optflags.patch
 Patch1: live-pic.patch
