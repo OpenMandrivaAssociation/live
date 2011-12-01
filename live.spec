@@ -49,7 +49,7 @@ make clean
 make RPM_OPT_FLAGS="%{optflags}"
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 for dir in BasicUsageEnvironment groupsock liveMedia UsageEnvironment; do
   mkdir -p %buildroot%_libdir/%name/$dir
   cp -r $dir/*.a $dir/include %buildroot%_libdir/%name/$dir
@@ -60,7 +60,7 @@ for testprog in `find testProgs mediaServer -type f -perm 755`; do
 done
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
