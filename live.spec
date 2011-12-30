@@ -1,5 +1,5 @@
 %define name live
-%define version 2011.12.02
+%define version 2011.12.23
 
 Summary: LIVE555 Streaming Media Library
 Name: %{name}
