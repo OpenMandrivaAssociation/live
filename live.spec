@@ -1,5 +1,5 @@
 %define name live
-%define version 2012.01.07
+%define version 2012.04.04
 
 Summary: LIVE555 Streaming Media Library
 Name: %{name}
@@ -12,7 +12,6 @@ Patch2: live-format-strings.patch
 License: LGPLv2+
 Group: System/Libraries
 URL: http://www.live555.com/liveMedia/
-BuildRoot: %{_tmppath}/%{name}-buildroot
 
 %description
 This code forms a set of C++ libraries for multimedia streaming, using
@@ -59,11 +58,7 @@ for testprog in `find testProgs mediaServer -type f -perm 755`; do
   install $testprog %buildroot%_bindir
 done
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc COPYING README
 %_bindir/MPEG2TransportStreamIndexer
 %_bindir/live555MediaServer
@@ -75,7 +70,4 @@ rm -rf %{buildroot}
 
 
 %files devel
-%defattr(-,root,root)
 %_libdir/%name
-
-
