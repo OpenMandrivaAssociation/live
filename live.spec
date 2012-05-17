@@ -6,7 +6,7 @@ Name: %{name}
 Version: %{version}
 Release: %mkrel 1
 Source0: http://live555.com/liveMedia/public/%{name}.%version.tar.gz
-Patch0: live.2007.01.09-optflags.patch
+Patch0: live-2012.04.21-optflags.patch
 Patch1: live-pic.patch
 Patch2: live-format-strings.patch
 License: LGPLv2+
@@ -43,9 +43,10 @@ This package contains all needed files to build programs based on LIVE555.
 rm -f testProgs/qtParse
 
 %build
+%setup_compile_flags
 ./genMakefiles linux
 make clean
-make RPM_OPT_FLAGS="%{optflags}"
+make
 
 %install
 rm -rf %{buildroot}
