@@ -4,7 +4,7 @@
 Summary: LIVE555 Streaming Media Library
 Name: %{name}
 Version: %{version}
-Release: %mkrel 1
+Release: 2
 Source0: http://live555.com/liveMedia/public/%{name}.%version.tar.gz
 Patch0: live-2012.04.21-optflags.patch
 Patch1: live-pic.patch
@@ -46,7 +46,7 @@ rm -f testProgs/qtParse
 %setup_compile_flags
 ./genMakefiles linux
 make clean
-make
+make CFLAGS="%{optflags} -DRTSPCLIENT_SYNCHRONOUS_INTERFACE=1"
 
 %install
 rm -rf %{buildroot}
