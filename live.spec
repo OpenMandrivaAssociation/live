@@ -1,7 +1,7 @@
 Summary:	LIVE555 Streaming Media Library
 Name:		live
-Version:	2012.04.21
-Release:	2
+Version:	2012.06.26
+Release:	1
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
 Patch0:		live-2012.04.21-optflags.patch
 Patch1:		live-pic.patch
