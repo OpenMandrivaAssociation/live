@@ -1,0 +1,66 @@
+--- live/BasicUsageEnvironment/Makefile.tail.pic	2012-04-21 08:56:46.000000000 +0200
++++ live/BasicUsageEnvironment/Makefile.tail	2012-04-25 14:12:37.608524331 +0200
+@@ -13,10 +13,10 @@ libBasicUsageEnvironment.$(LIB_SUFFIX):
+ 		$(OBJS)
+ 
+ .$(C).$(OBJ):
+-	$(C_COMPILER) -c $(C_FLAGS) $<       
++	$(C_COMPILER) -c $(C_FLAGS) $(PIC_FLAGS) $<       
+ 
+ .$(CPP).$(OBJ):
+-	$(CPLUSPLUS_COMPILER) -c $(CPLUSPLUS_FLAGS) $<
++	$(CPLUSPLUS_COMPILER) -c $(CPLUSPLUS_FLAGS) $(PIC_FLAGS) $<
+ 
+ BasicUsageEnvironment0.$(CPP):	include/BasicUsageEnvironment0.hh
+ include/BasicUsageEnvironment0.hh:	include/BasicUsageEnvironment_version.hh include/DelayQueue.hh
+--- live/config.linux.pic	2012-04-25 14:12:36.808663056 +0200
++++ live/config.linux	2012-04-25 14:12:38.528525442 +0200
+@@ -2,6 +2,7 @@ COMPILE_OPTS =		$(INCLUDES) -I. $(RPM_OP
+ C =			c
+ C_COMPILER =		cc
+ C_FLAGS =		$(COMPILE_OPTS)
++PIC_FLAGS =		-fPIC
+ CPP =			cpp
+ CPLUSPLUS_COMPILER =	c++
+ CPLUSPLUS_FLAGS =	$(COMPILE_OPTS) -Wall -DBSD=1
+--- live/groupsock/Makefile.tail.pic	2012-04-21 08:56:47.000000000 +0200
++++ live/groupsock/Makefile.tail	2012-04-25 14:12:38.928525512 +0200
+@@ -4,10 +4,10 @@ ALL = libgroupsock.$(LIB_SUFFIX)
+ all:	$(ALL)
+ 
+ .$(C).$(OBJ):
+-	$(C_COMPILER) -c $(C_FLAGS) $<       
++	$(C_COMPILER) -c $(C_FLAGS) $(PIC_FLAGS) $<       
+ 
+ .$(CPP).$(OBJ):
+-	$(CPLUSPLUS_COMPILER) -c $(CPLUSPLUS_FLAGS) $<
++	$(CPLUSPLUS_COMPILER) -c $(CPLUSPLUS_FLAGS) $(PIC_FLAGS) $<
+ 
+ GROUPSOCK_LIB_OBJS = GroupsockHelper.$(OBJ) GroupEId.$(OBJ) inet.$(OBJ) Groupsock.$(OBJ) NetInterface.$(OBJ) NetAddress.$(OBJ) IOHandlers.$(OBJ)
+ 
+--- live/liveMedia/Makefile.tail.pic	2012-04-21 08:56:47.000000000 +0200
++++ live/liveMedia/Makefile.tail	2012-04-25 14:21:12.908525461 +0200
+@@ -5,7 +5,7 @@ ALL = $(LIVEMEDIA_LIB)
+ all:	$(ALL)
+ 
+ .$(C).$(OBJ):
+-	$(C_COMPILER) -c $(C_FLAGS) $<       
++	$(C_COMPILER) -c $(C_FLAGS) $(PIC_FLAGS) $<       
+ 
+ .$(CPP).$(OBJ):
+ 	$(CPLUSPLUS_COMPILER) -c $(CPLUSPLUS_FLAGS) $<
+--- live/UsageEnvironment/Makefile.tail.pic	2012-04-21 08:56:47.000000000 +0200
++++ live/UsageEnvironment/Makefile.tail	2012-04-25 14:12:38.068525445 +0200
+@@ -10,10 +10,10 @@ $(USAGE_ENVIRONMENT_LIB): $(OBJS)
+ 	$(LIBRARY_LINK)$@ $(LIBRARY_LINK_OPTS) $(OBJS)
+ 
+ .$(C).$(OBJ):
+-	$(C_COMPILER) -c $(C_FLAGS) $<       
++	$(C_COMPILER) -c $(C_FLAGS) $(PIC_FLAGS) $<       
+ 
+ .$(CPP).$(OBJ):
+-	$(CPLUSPLUS_COMPILER) -c $(CPLUSPLUS_FLAGS) $<
++	$(CPLUSPLUS_COMPILER) -c $(CPLUSPLUS_FLAGS) $(PIC_FLAGS) $<
+ 
+ UsageEnvironment.$(CPP):	include/UsageEnvironment.hh
+ include/UsageEnvironment.hh:	include/UsageEnvironment_version.hh include/Boolean.hh include/strDup.hh
