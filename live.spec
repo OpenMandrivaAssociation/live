@@ -1,14 +1,11 @@
 Summary:	LIVE555 Streaming Media Library
 Name:		live
-Version:	2012.09.13
+Version:	2013.06.18
 Release:	1
+Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://www.live555.com/liveMedia/
-Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
-Patch0:		live-2012.04.21-optflags.patch
-Patch1:		live-pic.patch
-Patch2:		live-format-strings.patch
+URL:		http://www.live555.com/liveMedia/
 
 %description
 This code forms a set of C++ libraries for multimedia streaming, using
@@ -33,9 +30,11 @@ streaming applications.
 This package contains all needed files to build programs based on LIVE555.
 
 %prep
-%setup -qn %{name}
-%apply_patches
-rm -f testProgs/qtParse
+%setup -q -n %{name}
+sed -i -e "s/-O2/$RPM_OPT_FLAGS/" \
+  config.linux-with-shared-libraries
+  
+find . -name '*.cpp' -exec chmod 644 {} \;
 
 %build
 %setup_compile_flags
