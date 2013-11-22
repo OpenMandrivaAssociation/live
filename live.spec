@@ -4,7 +4,7 @@
 Summary:	LIVE555 Streaming Media Library
 Name:		live
 Version:	2013.11.15
-Release:	1
+Release:	2
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
 License:	LGPLv2+
 Group:		System/Libraries
@@ -83,7 +83,7 @@ includedir=%{_prefix}/include
 Name: %{name}555
 Description: multimedia RTSP streaming library
 Version: %{version}
-Cflags: -I${includedir}/liveMedia -I${includedir}/groupsock -I${includedir}/BasicUsageEnvironment -I${includedir}/UsageEnvironment
+Cflags: -I\${includedir}/liveMedia -I\${includedir}/groupsock -I\${includedir}/BasicUsageEnvironment -I\${includedir}/UsageEnvironment
 Libs: -lliveMedia -lgroupsock -lBasicUsageEnvironment -lUsageEnvironment
 EOF
 
