@@ -41,7 +41,7 @@ This package contains the example apps of LIVE555.
 Summary:	Development files of the LIVE555 Streaming Media Library
 Group:		Development/C++
 Requires:	%{mklibname BasicUsageEnvironment 0} = %EVRD
-Requires:	%{mklibname UsageEnvironment 0} = %EVRD
+Requires:	%{mklibname UsageEnvironment 1} = %EVRD
 Requires:	%{mklibname groupsock 1} = %EVRD
 Requires:	%{mklibname liveMedia 17} = %EVRD
 
