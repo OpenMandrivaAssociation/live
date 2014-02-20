@@ -43,7 +43,7 @@ Group:		Development/C++
 Requires:	%{mklibname BasicUsageEnvironment 0} = %EVRD
 Requires:	%{mklibname UsageEnvironment 1} = %EVRD
 Requires:	%{mklibname groupsock 1} = %EVRD
-Requires:	%{mklibname liveMedia 17} = %EVRD
+Requires:	%{mklibname liveMedia 22} = %EVRD
 
 %description	devel
 This code forms a set of C++ libraries for multimedia streaming, using
