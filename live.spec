@@ -1,11 +1,32 @@
+# Weird libraries with circular interdependencies
+%define _disable_ld_no_undefined 1
+
 Summary:	LIVE555 Streaming Media Library
 Name:		live
-Version:	2013.06.18
-Release:	2
+Version:	2014.01.07
+Release:	6
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.live555.com/liveMedia/
+
+%if ! %{defined libpackage}
+# This should go into a standard rpm macro soon-ish
+%define libpackage() \
+%%package -n %{expand:%%mklibname %{1} %{2}}\
+Summary: The %{1} library, a part of %{name}\
+Group: System/Libraries\
+%%description -n %{expand:%%mklibname %{1} %{2}}\
+The %{1} library, a part of %{name}\
+%%files -n %{expand:%%mklibname %{1} %{2}}\
+%{_libdir}/lib%{1}.so.%{2}*\
+%{nil}
+%endif
+
+%libpackage BasicUsageEnvironment 0
+%libpackage UsageEnvironment 1
+%libpackage groupsock 1
+%libpackage liveMedia 22
 
 %description
 This code forms a set of C++ libraries for multimedia streaming, using
@@ -19,6 +40,10 @@ This package contains the example apps of LIVE555.
 %package	devel
 Summary:	Development files of the LIVE555 Streaming Media Library
 Group:		Development/C++
+Requires:	%{mklibname BasicUsageEnvironment 0} = %EVRD
+Requires:	%{mklibname UsageEnvironment 1} = %EVRD
+Requires:	%{mklibname groupsock 1} = %EVRD
+Requires:	%{mklibname liveMedia 17} = %EVRD
 
 %description	devel
 This code forms a set of C++ libraries for multimedia streaming, using
@@ -38,29 +63,43 @@ find . -name '*.cpp' -exec chmod 644 {} \;
 
 %build
 %setup_compile_flags
-./genMakefiles linux
+./genMakefiles linux-with-shared-libraries
 make clean
-make CFLAGS="%{optflags} -DRTSPCLIENT_SYNCHRONOUS_INTERFACE=1"
+%make CFLAGS="%{optflags} -DRTSPCLIENT_SYNCHRONOUS_INTERFACE=1" PREFIX=%{_prefix} LIBDIR=%{_libdir}
 
 %install
-for dir in BasicUsageEnvironment groupsock liveMedia UsageEnvironment; do
-  mkdir -p %{buildroot}%{_libdir}/%{name}/$dir
-  cp -r $dir/*.a $dir/include %{buildroot}%{_libdir}/%{name}/$dir
-done
-mkdir -p %{buildroot}%{_bindir}
-for testprog in `find testProgs mediaServer -type f -perm 755`; do
-  install $testprog %{buildroot}%{_bindir}
-done
+%makeinstall_std PREFIX=%{_prefix} LIBDIR=%{_libdir}
+# Based on http://www.mail-archive.com/live-devel@lists.live555.com/msg09499.html
+if [ -d %{buildroot}%{_libdir}/pkgconfig ]; then
+	echo "pkgconfig file was added upstream, remove our addition"
+	exit 1
+fi
+mkdir -p %{buildroot}%{_libdir}/pkgconfig
+cat >%{buildroot}%{_libdir}/pkgconfig/live555.pc <<EOF
+prefix=%{_prefix}
+libdir=%{_libdir}
+includedir=%{_prefix}/include
+
+Name: %{name}555
+Description: multimedia RTSP streaming library
+Version: %{version}
+Cflags: -I\${includedir}/liveMedia -I\${includedir}/groupsock -I\${includedir}/BasicUsageEnvironment -I\${includedir}/UsageEnvironment
+Libs: -lliveMedia -lgroupsock -lBasicUsageEnvironment -lUsageEnvironment
+EOF
 
 %files
 %doc COPYING README
 %{_bindir}/MPEG2TransportStreamIndexer
 %{_bindir}/live555MediaServer
+%{_bindir}/live555ProxyServer
 %{_bindir}/openRTSP
 %{_bindir}/playSIP
+%{_bindir}/registerRTSPStream
 %{_bindir}/sapWatch
 %{_bindir}/test*
 %{_bindir}/vobStreamer
 
 %files devel
-%{_libdir}/%{name}
+%{_libdir}/*.so
+%{_includedir}/*
+%{_libdir}/pkgconfig/*.pc
