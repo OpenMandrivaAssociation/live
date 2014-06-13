@@ -4,7 +4,7 @@
 Summary:	LIVE555 Streaming Media Library
 Name:		live
 Version:	2014.01.07
-Release:	7
+Release:	8
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
 License:	LGPLv2+
 Group:		System/Libraries
