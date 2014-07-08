@@ -3,7 +3,7 @@
 
 Summary:	LIVE555 Streaming Media Library
 Name:		live
-Version:	2014.01.07
+Version:	2014.07.04
 Release:	8
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
 License:	LGPLv2+
@@ -24,9 +24,9 @@ The %{1} library, a part of %{name}\
 %endif
 
 %libpackage BasicUsageEnvironment 0
-%libpackage UsageEnvironment 1
+%libpackage UsageEnvironment 2
 %libpackage groupsock 1
-%libpackage liveMedia 22
+%libpackage liveMedia 33
 
 %description
 This code forms a set of C++ libraries for multimedia streaming, using
@@ -65,7 +65,7 @@ find . -name '*.cpp' -exec chmod 644 {} \;
 %setup_compile_flags
 ./genMakefiles linux-with-shared-libraries
 make clean
-%make CFLAGS="%{optflags} -DRTSPCLIENT_SYNCHRONOUS_INTERFACE=1" PREFIX=%{_prefix} LIBDIR=%{_libdir}
+%make LIBRARY_LINK="%{__cc} -o" C_COMPILER="%{__cc}" CPLUSPLUS_COMPILER="%{__cxx}" CFLAGS="%{optflags} -DRTSPCLIENT_SYNCHRONOUS_INTERFACE=1" PREFIX=%{_prefix} LIBDIR=%{_libdir}
 
 %install
 %makeinstall_std PREFIX=%{_prefix} LIBDIR=%{_libdir}
