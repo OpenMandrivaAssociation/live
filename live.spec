@@ -65,7 +65,7 @@ find . -name '*.cpp' -exec chmod 644 {} \;
 %setup_compile_flags
 ./genMakefiles linux-with-shared-libraries
 make clean
-%make LIBRARY_LINK="%{__cc} -o" C_COMPILER="%{__cc}" CPLUSPLUS_COMPILER="%{__cxx}" CFLAGS="%{optflags} -DRTSPCLIENT_SYNCHRONOUS_INTERFACE=1" PREFIX=%{_prefix} LIBDIR=%{_libdir}
+%make LINK="%{__cxx} -o" LIBRARY_LINK="%{__cc} -o" C_COMPILER="%{__cc}" CPLUSPLUS_COMPILER="%{__cxx}" CFLAGS="%{optflags} -DRTSPCLIENT_SYNCHRONOUS_INTERFACE=1" PREFIX=%{_prefix} LIBDIR=%{_libdir}
 
 %install
 %makeinstall_std PREFIX=%{_prefix} LIBDIR=%{_libdir}
