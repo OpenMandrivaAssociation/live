@@ -3,8 +3,8 @@
 
 Summary:	LIVE555 Streaming Media Library
 Name:		live
-Version:	2014.07.04
-Release:	10
+Version:	2015.03.06a
+Release:	1
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
 License:	LGPLv2+
 Group:		System/Libraries
@@ -25,8 +25,8 @@ The %{1} library, a part of %{name}\
 
 %libpackage BasicUsageEnvironment 0
 %libpackage UsageEnvironment 2
-%libpackage groupsock 1
-%libpackage liveMedia 33
+%libpackage groupsock 4
+%libpackage liveMedia 42
 
 %description
 This code forms a set of C++ libraries for multimedia streaming, using
@@ -42,8 +42,8 @@ Summary:	Development files of the LIVE555 Streaming Media Library
 Group:		Development/C++
 Requires:	%{mklibname BasicUsageEnvironment 0} = %EVRD
 Requires:	%{mklibname UsageEnvironment 2} = %EVRD
-Requires:	%{mklibname groupsock 1} = %EVRD
-Requires:	%{mklibname liveMedia 33} = %EVRD
+Requires:	%{mklibname groupsock 4} = %EVRD
+Requires:	%{mklibname liveMedia 42} = %EVRD
 
 %description	devel
 This code forms a set of C++ libraries for multimedia streaming, using
