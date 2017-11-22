@@ -3,9 +3,10 @@
 
 Summary:	LIVE555 Streaming Media Library
 Name:		live
-Version:	2017.05.24
+Version:	2017.10.28
 Release:	1
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
+Patch0:		live-glibc-2.26.patch
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.live555.com/liveMedia/
@@ -29,7 +30,7 @@ Obsoletes:	%{mklibname liveMedia 42} < 2015.08.07
 %libpackage BasicUsageEnvironment 1
 %libpackage UsageEnvironment 3
 %libpackage groupsock 8
-%libpackage liveMedia 58
+%libpackage liveMedia 61
 
 %description
 This code forms a set of C++ libraries for multimedia streaming, using
@@ -59,6 +60,7 @@ This package contains all needed files to build programs based on LIVE555.
 
 %prep
 %setup -q -n %{name}
+%apply_patches
 sed -i -e "s/-O2/$RPM_OPT_FLAGS/" \
   config.linux-with-shared-libraries
   
