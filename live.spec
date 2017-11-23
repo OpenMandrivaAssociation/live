@@ -27,10 +27,17 @@ Obsoletes:	%{mklibname BasicUsageEnvironment 0} < 2015.08.07
 Obsoletes:	%{mklibname UsageEnvironment 2} < 2015.08.07
 Obsoletes:	%{mklibname groupsock 4} < 2015.08.07
 Obsoletes:	%{mklibname liveMedia 42} < 2015.08.07
-%libpackage BasicUsageEnvironment 1
-%libpackage UsageEnvironment 3
-%libpackage groupsock 8
-%libpackage liveMedia 61
+Obsoletes:	%{mklibname liveMedia 58} < 2017.10.28
+
+%define BasicUsageEnvironmentMajor 1
+%define UsageEnvironmentMajor 3
+%define groupsockMajor 8
+%define liveMediaMajor 61
+
+%libpackage BasicUsageEnvironment %{BasicUsageEnvironmentMajor}
+%libpackage UsageEnvironment %{UsageEnvironmentMajor}
+%libpackage groupsock %{groupsockMajor}
+%libpackage liveMedia %{liveMediaMajor}
 
 %description
 This code forms a set of C++ libraries for multimedia streaming, using
@@ -44,10 +51,10 @@ This package contains the example apps of LIVE555.
 %package	devel
 Summary:	Development files of the LIVE555 Streaming Media Library
 Group:		Development/C++
-Requires:	%{mklibname BasicUsageEnvironment 1} = %EVRD
-Requires:	%{mklibname UsageEnvironment 3} = %EVRD
-Requires:	%{mklibname groupsock 8} = %EVRD
-Requires:	%{mklibname liveMedia 58} = %EVRD
+Requires:	%{mklibname BasicUsageEnvironment %{BasicUsageEnvironmentMajor}} = %EVRD
+Requires:	%{mklibname UsageEnvironment %{UsageEnvironmentMajor}} = %EVRD
+Requires:	%{mklibname groupsock %{groupsockMajor}} = %EVRD
+Requires:	%{mklibname liveMedia %{liveMediaMajor}} = %EVRD
 
 %description	devel
 This code forms a set of C++ libraries for multimedia streaming, using
