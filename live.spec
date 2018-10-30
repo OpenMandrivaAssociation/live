@@ -4,7 +4,7 @@
 Summary:	LIVE555 Streaming Media Library
 Name:		live
 Version:	2017.10.28
-Release:	1
+Release:	2
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
 Patch0:		live-glibc-2.26.patch
 License:	LGPLv2+
