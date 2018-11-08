@@ -3,10 +3,9 @@
 
 Summary:	LIVE555 Streaming Media Library
 Name:		live
-Version:	2017.10.28
-Release:	2
+Version:	2018.10.17
+Release:	1
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
-Patch0:		live-glibc-2.26.patch
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.live555.com/liveMedia/
@@ -32,7 +31,7 @@ Obsoletes:	%{mklibname liveMedia 58} < 2017.10.28
 %define BasicUsageEnvironmentMajor 1
 %define UsageEnvironmentMajor 3
 %define groupsockMajor 8
-%define liveMediaMajor 61
+%define liveMediaMajor 64
 
 %libpackage BasicUsageEnvironment %{BasicUsageEnvironmentMajor}
 %libpackage UsageEnvironment %{UsageEnvironmentMajor}
