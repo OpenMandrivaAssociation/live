@@ -66,7 +66,7 @@ This package contains all needed files to build programs based on LIVE555.
 
 %prep
 %setup -q -n %{name}
-%apply_patches
+%autopatch -p1
 sed -i -e "s/-O2/$RPM_OPT_FLAGS/" \
   config.linux-with-shared-libraries
   
