@@ -10,6 +10,8 @@ License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.live555.com/liveMedia/
 
+BuildRequires:  pkgconfig(openssl)
+
 %if ! %{defined libpackage}
 # This should go into a standard rpm macro soon-ish
 %define libpackage() \
