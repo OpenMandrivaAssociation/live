@@ -3,7 +3,7 @@
 
 Summary:	LIVE555 Streaming Media Library
 Name:		live
-Version:	2018.10.17
+Version:	2021.01.01
 Release:	1
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
 License:	LGPLv2+
@@ -30,8 +30,8 @@ Obsoletes:	%{mklibname liveMedia 58} < 2017.10.28
 
 %define BasicUsageEnvironmentMajor 1
 %define UsageEnvironmentMajor 3
-%define groupsockMajor 8
-%define liveMediaMajor 64
+%define groupsockMajor 24
+%define liveMediaMajor 87
 
 %libpackage BasicUsageEnvironment %{BasicUsageEnvironmentMajor}
 %libpackage UsageEnvironment %{UsageEnvironmentMajor}
@@ -79,7 +79,7 @@ make clean
 %make LINK="%{__cxx} -o" LIBRARY_LINK="%{__cc} -o" C_COMPILER="%{__cc}" CPLUSPLUS_COMPILER="%{__cxx}" CFLAGS="%{optflags} -DRTSPCLIENT_SYNCHRONOUS_INTERFACE=1" PREFIX=%{_prefix} LIBDIR=%{_libdir}
 
 %install
-%makeinstall_std PREFIX=%{_prefix} LIBDIR=%{_libdir}
+%make_install PREFIX=%{_prefix} LIBDIR=%{_libdir}
 # Based on http://www.mail-archive.com/live-devel@lists.live555.com/msg09499.html
 if [ -d %{buildroot}%{_libdir}/pkgconfig ]; then
 	echo "pkgconfig file was added upstream, remove our addition"
