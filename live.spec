@@ -103,14 +103,17 @@ EOF
 %files
 %doc COPYING README
 %{_bindir}/MPEG2TransportStreamIndexer
+%{_bindir}/mikeyParse
 %{_bindir}/live555MediaServer
 %{_bindir}/live555ProxyServer
+%{_bindir}/live555HLSProxy
 %{_bindir}/openRTSP
 %{_bindir}/playSIP
 %{_bindir}/registerRTSPStream
 %{_bindir}/sapWatch
 %{_bindir}/test*
 %{_bindir}/vobStreamer
+
 
 %files devel
 %{_libdir}/*.so
