@@ -3,7 +3,7 @@
 
 Summary:	LIVE555 Streaming Media Library
 Name:		live
-Version:	2021.01.01
+Version:	2021.04.06
 Release:	1
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
 License:	LGPLv2+
@@ -27,13 +27,15 @@ The %{1} library, a part of %{name}\
 Obsoletes:	%{mklibname BasicUsageEnvironment 0} < 2015.08.07
 Obsoletes:	%{mklibname UsageEnvironment 2} < 2015.08.07
 Obsoletes:	%{mklibname groupsock 4} < 2015.08.07
+Obsoletes:	%{mklibname groupsock 25} < 2021.05.01
 Obsoletes:	%{mklibname liveMedia 42} < 2015.08.07
 Obsoletes:	%{mklibname liveMedia 58} < 2017.10.28
+Obsoletes:	%{mklibname liveMedia 87} < 2021.05.01
 
 %define BasicUsageEnvironmentMajor 1
 %define UsageEnvironmentMajor 3
-%define groupsockMajor 25
-%define liveMediaMajor 87
+%define groupsockMajor 30
+%define liveMediaMajor 94
 
 %libpackage BasicUsageEnvironment %{BasicUsageEnvironmentMajor}
 %libpackage UsageEnvironment %{UsageEnvironmentMajor}
