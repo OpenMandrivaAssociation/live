@@ -35,7 +35,7 @@ Obsoletes:	%{mklibname liveMedia 87} < 2021.05.01
 %define BasicUsageEnvironmentMajor 1
 %define UsageEnvironmentMajor 3
 %define groupsockMajor 30
-%define liveMediaMajor 106
+%define liveMediaMajor 107
 
 %libpackage BasicUsageEnvironment %{BasicUsageEnvironmentMajor}
 %libpackage UsageEnvironment %{UsageEnvironmentMajor}
