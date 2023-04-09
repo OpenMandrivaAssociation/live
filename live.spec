@@ -3,8 +3,8 @@
 
 Summary:	LIVE555 Streaming Media Library
 Name:		live
-Version:	2022.12.01
-Release:	2
+Version:	2023.03.30
+Release:	1
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
 License:	LGPLv2+
 Group:		System/Libraries
@@ -12,27 +12,19 @@ URL:		http://www.live555.com/liveMedia/
 
 BuildRequires:  pkgconfig(openssl)
 
-%if ! %{defined libpackage}
-# This should go into a standard rpm macro soon-ish
-%define libpackage() \
-%%package -n %{expand:%%mklibname %{1} %{2}}\
-Summary: The %{1} library, a part of %{name}\
-Group: System/Libraries\
-%%description -n %{expand:%%mklibname %{1} %{2}}\
-The %{1} library, a part of %{name}\
-%%files -n %{expand:%%mklibname %{1} %{2}}\
-%{_libdir}/lib%{1}.so.%{2}*\
-%{nil}
-%endif
 Obsoletes:	%{mklibname BasicUsageEnvironment 0} < 2015.08.07
+Obsoletes:	%{mklibname BasicUsageEnvironment 1} < 2023.03.30
 Obsoletes:	%{mklibname UsageEnvironment 2} < 2015.08.07
+Obsoletes:	%{mklibname UsageEnvironment 3} < 2023.03.30
 Obsoletes:	%{mklibname groupsock 4} < 2015.08.07
 Obsoletes:	%{mklibname groupsock 25} < 2021.05.01
+Obsoletes:	%{mklibname groupsock 30} < 2023.03.30
 Obsoletes:	%{mklibname liveMedia 42} < 2015.08.07
 Obsoletes:	%{mklibname liveMedia 58} < 2017.10.28
 Obsoletes:	%{mklibname liveMedia 87} < 2021.05.01
+Obsoletes:	%{mklibname liveMedia 107} < 2023.03.30
 
-%define BasicUsageEnvironmentMajor 1
+%define BasicUsageEnvironmentMajor 2
 %define UsageEnvironmentMajor 3
 %define groupsockMajor 30
 %define liveMediaMajor 107
