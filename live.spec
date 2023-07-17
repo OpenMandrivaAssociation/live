@@ -11,6 +11,7 @@ Group:		System/Libraries
 URL:		http://www.live555.com/liveMedia/
 
 BuildRequires:  pkgconfig(openssl)
+BuildRequires:	atomic-devel
 
 Obsoletes:	%{mklibname BasicUsageEnvironment 0} < 2015.08.07
 Obsoletes:	%{mklibname BasicUsageEnvironment 1} < 2023.03.30
