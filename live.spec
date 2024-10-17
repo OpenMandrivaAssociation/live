@@ -8,7 +8,7 @@ Release:	1
 Source0:	http://live555.com/liveMedia/public/%{name}.%{version}.tar.gz
 License:	LGPLv2+
 Group:		System/Libraries
-URL:		http://www.live555.com/liveMedia/
+URL:		https://www.live555.com/liveMedia/
 
 BuildRequires:  pkgconfig(openssl)
 
