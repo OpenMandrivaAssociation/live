@@ -10,6 +10,7 @@ License:	LGPLv2+
 Group:		System/Libraries
 URL:		https://www.live555.com/liveMedia/
 
+BuildRequires:	make
 BuildRequires:  pkgconfig(openssl)
 
 Obsoletes:	%{mklibname BasicUsageEnvironment 0} < 2015.08.07
